@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AI Virtual Try‑On</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Virtual Try-On Clothes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="viewer">
-      <video id="webcam" autoplay playsinline></video>
-      <canvas id="canvas"></canvas>
-    </div>
+    <header>
+        <h1>AI Virtual Try-On Clothes</h1>
+        <nav>
+            <button onclick="showSection('tryon')">Virtual Try-On</button>
+            <button onclick="showSection('upload')">Upload Model</button>
+            <button onclick="showSection('clothes')">Upload Clothes</button>
+        </nav>
+    </header>
 
-    <div class="controls">
-      <div class="section">
-        <h3>Outfits</h3>
-        <button onclick="selectCloth('shirt_white.png')">White Shirt</button>
-        <button onclick="selectCloth('shirt_black.png')">Black Shirt</button>
-        <button onclick="selectCloth('dress_blue.png')">Blue Dress</button>
-      </div>
-      <div class="section">
-        <h3>Colors</h3>
-        <input type="color" id="colorPicker" onchange="setColor(this.value)">
-      </div>
-      <div class="section">
-        <h3>Filters</h3>
-        <button onclick="setFilter('none')">Normal</button>
-        <button onclick="setFilter('grayscale')">Gray</button>
-        <button onclick="setFilter('sepia')">Sepia</button>
-      </div>
-      <div class="section">
-        <h3>Upload</h3>
-        <input type="file" accept="image/png, image/jpeg" onchange="uploadCloth(event)">
-      </div>
-    </div>
-  </div>
+    <main>
+        <section id="tryon" class="active">
+            <h2>Try-On Section</h2>
+            <input type="file" accept="image/*" id="modelInput" onchange="loadModel(event)">
+            <canvas id="tryonCanvas"></canvas>
+            <div class="controls">
+                <button onclick="changeCategory('top')">Top</button>
+                <button onclick="changeCategory('bottom')">Bottom</button>
+                <button onclick="changeCategory('onepiece')">One-piece</button>
+                <input type="file" accept="image/*" id="clothInput" onchange="loadCloth(event)">
+                <input type="color" id="colorPicker" onchange="changeColor(this.value)">
+            </div>
+        </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose"></script>
-  <script src="script.js"></script>
+        <section id="upload">
+            <h2>Upload Model Photo</h2>
+            <input type="file" accept="image/*" onchange="uploadModel(event)">
+        </section>
+
+        <section id="clothes">
+            <h2>Upload Clothes</h2>
+            <input type="file" accept="image/*" onchange="uploadClothes(event)">
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
