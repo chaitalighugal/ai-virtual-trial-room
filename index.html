@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Virtual Trial Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>AI Virtual Trial Room</h1>
+    <video id="webcam" autoplay playsinline></video>
+    <canvas id="outputCanvas"></canvas>
+
+    <div id="clothing-selector">
+        <button onclick="selectCloth('shirt1.png')">Try Shirt</button>
+        <button onclick="selectCloth('dress1.png')">Try Dress</button>
+    </div>
+
+    <div id="clothing-selector">
+        <h3>Select Clothing:</h3>
+        <button onclick="selectCloth('shirt1.png')">Shirt 1</button>
+        <button onclick="selectCloth('shirt2.png')">Shirt 2</button>
+        <button onclick="selectCloth('dress1.png')">Dress 1</button>
+        <button onclick="selectCloth('dress2.png')">Dress 2</button>
+    </div>
+
+    <div id="filter-selector">
+        <h3>Select Filter:</h3>
+        <button onclick="setFilter('none')">Normal</button>
+        <button onclick="setFilter('grayscale')">Grayscale</button>
+        <button onclick="setFilter('brightness')">Bright</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose"></script>
+    <script src="script.js"></script>
+</body>
+</html>

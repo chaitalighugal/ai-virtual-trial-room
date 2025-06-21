@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+video, canvas {
+    width: 600px;
+    height: 450px;
+    border: 2px solid black;
+}
+
+#clothing-selector {
+    margin-top: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#filter-selector {
+    margin-top: 20px;
+}
+
